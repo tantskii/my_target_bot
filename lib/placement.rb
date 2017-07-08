@@ -1,29 +1,31 @@
 class Placement
-  def initialize(type, name)
-    @type = Placement.test_types[type]
-    @name = name
+  attr_reader :type, :name
+
+  def initialize(type, name, environment)
+    @type        = Placement.types(environment)[type]
+    @name        = name
   end
 
-  def self.test_types
-    {
-        standard:        'standard',
-        leaderboard:     'leaderboard',
-        rewarded_video:  'rewarded video',
-        in_stream_video: 'in-stream video',
-        medium:          'medium'
-    }
-  end
-
-  def self.types
-    {
-        standard:        'standard',
-        leaderboard:     'leaderboard',
-        rewarded_video:  'rewarded video',
-        in_stream_video: 'in-stream video',
-        medium:          'medium',
-        native:          'native',
-        floating:        'floating',
-        fullscreen:      'fullscreen'
-    }
+  def self.types(environment)
+    if environment == :test
+      {
+          standard:        'standard',
+          leaderboard:     'leaderboard',
+          rewarded_video:  'rewarded video',
+          in_stream_video: 'in-stream video',
+          medium:          'medium'
+      }
+    elsif environment == :origin
+      {
+          standard:        'standard',
+          leaderboard:     'leaderboard',
+          rewarded_video:  'rewarded video',
+          in_stream_video: 'in-stream video',
+          medium:          'medium',
+          native:          'native',
+          floating:        'floating',
+          fullscreen:      'fullscreen'
+      }
+    end
   end
 end
