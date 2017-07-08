@@ -6,7 +6,17 @@ require_relative 'lib/ad_unit_creator'
 require 'io/console'
 
 NUMBER_OF_UNITS = 4
-environment = [:test, :origin].first
+environments    = [:test, :origin]
+choice     = 0
+
+while choice < 1 || choice > 2 do
+  puts 'Выбрать окружение'
+  environments.each_with_index {|mode, i| puts "#{i + 1}. #{mode}"}
+
+  choice = STDIN.gets.to_i
+end
+
+environment = environments[choice - 1]
 
 puts 'Введите номер телефона или почту на которую зарегистрирован аккаунт в MyTarget'
 login = STDIN.gets.chomp
@@ -25,19 +35,19 @@ else
 end
 
 puts 'Введите название приложения/сайта'
-app_name =  STDIN.gets.encode("UTF-8").chomp
+app_name = STDIN.gets.encode("UTF-8").chomp
 
 puts 'Введите ссылку на приложение/сайт'
 app_url = STDIN.gets.chomp
 
 app = App.new(app_url, app_name)
 
-NUMBER_OF_UNITS.times do
-  puts 'Введите название Вашего рекламного блока'
-  placement_name = STDIN.gets.encode("UTF-8").chomp
-  placement_type = Placement.types(environment).keys.sample
+puts 'Введите название для ваших рекламных блоков'
+placement_name = STDIN.gets.encode("UTF-8").chomp
 
-  placement = Placement.new(placement_type, placement_name, environment)
+NUMBER_OF_UNITS.times do |i|
+  placement_type = Placement.types(environment).keys[i]
+  placement      = Placement.new(placement_type, placement_name, environment)
 
   puts 'Создание блока может занять некоторое время'
   bot.create_app(app, placement)
@@ -47,4 +57,4 @@ NUMBER_OF_UNITS.times do
   puts
 end
 
-bot.close_browser
+# bot.close_browser
