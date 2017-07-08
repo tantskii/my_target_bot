@@ -9,6 +9,9 @@ NUMBER_OF_UNITS = 4
 environments    = [:test, :origin]
 choice     = 0
 
+puts "Бот авторизирует вас в рекламной сети мейл ру (MyTarget) и создаст #{NUMBER_OF_UNITS} рекламных юнита"\
+     "для вашего приложения."
+
 while choice < 1 || choice > 2 do
   puts 'Выбрать окружение'
   environments.each_with_index {|mode, i| puts "#{i + 1}. #{mode}"}
@@ -18,7 +21,11 @@ end
 
 environment = environments[choice - 1]
 
-puts 'Введите номер телефона или почту на которую зарегистрирован аккаунт в MyTarget'
+puts 'Введите номер телефона или почту на которую зарегистрирован аккаунт в MyTarget' if environment == :origin
+
+puts 'Введите номер телефона или почту на которую ' \
+      'зарегистрирован аккаунт в тестовом окружении MyTarget' if environment == :test
+
 login = STDIN.gets.chomp
 
 puts 'Введите пароль'
