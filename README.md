@@ -1,4 +1,5 @@
 # my_target_bot
+
 Бот для создания  рекламных мест (Ad unit) в рекламной сети [MyTaget](http://target.my.com/)
 
 Так же существует возможность создания реклмных мест [тестовом окружении](https://target-sandbox.my.com).
@@ -40,10 +41,13 @@
 Распакуйте архив в доступное место(далее `/path/to/geckodriver`)
 
 **Для Linux**
+
 Перейдите в папку куда вы распаковали архив в консоли
+
 `cd path/to/my_target_bot`
  
  Выполните следующую команду
+ 
 `export PATH=$PATH:/path/to/geckodriver`
 
 Снова запускайте бота
@@ -51,6 +55,7 @@
 `ruby main.rb`
 
 **Для Windows**
+
 Ищите больше информации [тут](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver).
 
 # Рекомендации
