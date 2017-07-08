@@ -9,7 +9,7 @@ NUMBER_OF_UNITS = 4
 environments    = [:test, :origin]
 choice     = 0
 
-puts "Бот авторизирует вас в рекламной сети мейл ру (MyTarget) и создаст #{NUMBER_OF_UNITS} рекламных юнита"\
+puts "Бот авторизирует вас в рекламной сети мейл ру (MyTarget) и создаст #{NUMBER_OF_UNITS} рекламных юнита "\
      "для вашего приложения."
 
 while choice < 1 || choice > 2 do
