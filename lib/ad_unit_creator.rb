@@ -1,12 +1,10 @@
 require 'watir'
 
 class AdUnitCreator
-  attr_reader :browser
+  attr_reader :browser, :link
 
   TEST_LINK   = 'https://target-sandbox.my.com/'
   ORIGIN_LINK = 'http://target.my.com/'
-
-  attr_reader :link
 
   def initialize(user, environment)
     @user         = user
@@ -19,13 +17,20 @@ class AdUnitCreator
 
   def authenticate_user
     button_class = 'button button_submit'
+    login_class  = 'auth-popup__input auth-popup__input_txt auth-popup__input_login'
+    password_class = 'auth-popup__input auth-popup__input_txt auth-popup__input_login'
+
     @browser.goto login_url
 
-    @browser.text_field(type: 'text').set @user.login
-    @browser.text_field(type: 'password').set @user.password
+    # @browser.text_field(type: 'text').set @user.login
+    @browser.text_field(name: 'login').wait_until(&:present?).set @user.login
+
+    # @browser.text_field(type: 'password').set @user.password
+    @browser.text_field(name: 'password').set @user.password
+
     @browser.button(class: button_class).click
 
-    return false if @browser.url.match 'error_code'
+    return false unless @browser.url.match 'pad_groups'
 
     @authenticate = true
 

@@ -53,7 +53,7 @@ puts 'Введите название для ваших рекламных бл�
 placement_name = STDIN.gets.encode("UTF-8").chomp
 
 NUMBER_OF_UNITS.times do |i|
-  placement_type = Placement.types(environment).keys[i]
+  placement_type = Placement.types(environment).keys[i % 3]
   placement      = Placement.new(placement_type, placement_name, environment)
 
   puts 'Создание блока может занять некоторое время'

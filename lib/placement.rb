@@ -11,16 +11,12 @@ class Placement
       {
           standard:        'standard',
           leaderboard:     'leaderboard',
-          rewarded_video:  'rewarded video',
-          in_stream_video: 'in-stream video',
           medium:          'medium'
       }
     elsif environment == :origin
       {
           standard:        'standard',
           leaderboard:     'leaderboard',
-          rewarded_video:  'rewarded video',
-          in_stream_video: 'in-stream video',
           medium:          'medium',
           native:          'native',
           floating:        'floating',
