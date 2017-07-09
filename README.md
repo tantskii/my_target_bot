@@ -58,11 +58,13 @@
  
 `export PATH=$PATH:/path/to/geckodriver`
 
+**Для Windows**
+
+`set PATH=%PATH%;C:\path\to\geckodriver`
+
 Снова запускайте бота
 
 `ruby main.rb`
-
-**Для Windows**
 
 Ищите больше информации [тут](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver).
 
