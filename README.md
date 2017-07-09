@@ -48,13 +48,13 @@
 
 Распакуйте архив в доступное место(далее `/path/to/geckodriver`)
 
-**Для Linux**
-
 Перейдите в папку куда вы распаковали архив в консоли
 
 `cd path/to/my_target_bot`
  
  Выполните следующую команду
+ 
+ **Для Linux**
  
 `export PATH=$PATH:/path/to/geckodriver`
 
@@ -65,6 +65,8 @@
 Снова запускайте бота
 
 `ruby main.rb`
+
+
 
 Ищите больше информации [тут](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver).
 
