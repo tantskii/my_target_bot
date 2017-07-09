@@ -26,9 +26,9 @@ class AdUnitCreator
     @browser.text_field(name: 'login').wait_until(&:present?).set @user.login
 
     # @browser.text_field(type: 'password').set @user.password
-    @browser.text_field(name: 'password').set @user.password
+    @browser.text_field(name: 'password').wait_until(&:present?).set @user.password
 
-    @browser.button(class: button_class).click
+    @browser.button(class: button_class).wait_until(&:present?).click
 
     return false unless @browser.url.match 'pad_groups'
 
@@ -47,11 +47,11 @@ class AdUnitCreator
       @browser.goto create_url
 
       @browser.text_field(class: app_name_class).wait_until(&:present?).set app.name
-      @browser.text_field(class: url_class).set app.url
+      @browser.text_field(class: url_class).wait_until(&:present?).set app.url
 
-      @browser.text_field(class: placement_name_class).set placement.name
-      @browser.span(title: placement.type).click
-      @browser.span(class: button_class).click
+      @browser.text_field(class: placement_name_class).wait_until(&:present?).set placement.name
+      @browser.span(title: placement.type).wait_until(&:present?).click
+      @browser.span(class: button_class).wait_until(&:present?).click
     else
       nil
     end
