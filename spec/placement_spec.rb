@@ -2,7 +2,7 @@ require 'placement'
 
 describe Placement do
   context '#construction' do
-    type = :rewarded_video
+    type = :medium
     name = 'angry-birds'
 
     placement = Placement.new(type, name, :test)
@@ -12,7 +12,7 @@ describe Placement do
     end
 
     it 'return correct type' do
-      expect(placement.type).to eq 'rewarded video'
+      expect(placement.type).to eq 'medium'
     end
   end
 
@@ -21,8 +21,6 @@ describe Placement do
       test_hash = {
           standard:        'standard',
           leaderboard:     'leaderboard',
-          rewarded_video:  'rewarded video',
-          in_stream_video: 'in-stream video',
           medium:          'medium'
       }
 
@@ -33,8 +31,6 @@ describe Placement do
       origin_hash = {
           standard:        'standard',
           leaderboard:     'leaderboard',
-          rewarded_video:  'rewarded video',
-          in_stream_video: 'in-stream video',
           medium:          'medium',
           native:          'native',
           floating:        'floating',
